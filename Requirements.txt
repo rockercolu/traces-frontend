@@ -1,0 +1,23 @@
+Steven Rocker
+Project: Educational web app
+
+Here's a screenshot: (https://drive.google.com/file/d/0B-eoZtUtVraBVVZDdG1ZYTZsNXM/edit?usp=sharing)
+Here's a prototype: (Can you put it up on Heroku for demonstration purposes? I could do it today. AC) 
+
+Development of a web app frontend for an MVP. We want to build this in Angular.js and connect it to an existing PHP backend with database.
+
+Features to be built: 
+
+1. Connect the search bar in frontend to a standard REST endpoint. That endpoint would return a list of quotes/theses and their identifiers which can then be manipulated.
+
+2. The frontend and backend will be needed to be uploaded to a server that supports node.js/elastic-search. Both Azure (BizSpark) and DigitalOcean fall into this category, as does Amazon A.W.S. Once that server up and running, the traces repositories can be cloned to the servers directly from BitBucket, allowing for continuous integration down the road. 
+
+3. Whatever you need changed on the front-end user interface (expand the description and add as much detail as possible).
+
+For simplicity and scalability the amazing (and open-source) ElasticSearch engine can be used to actually sort and filter the quotes and relay them to the frontend (http://www.elasticsearch.org/guide/en/elasticsearch/client/javascript-api/current/quick-start.html). The search engine actually provides direct support for multifaceted (twitter/location/particular parameters) search and has full Angular intergration (http://www.elasticsearch.org/guide/en/elasticsearch/client/javascript-api/current/browser-builds.html).
+
+4.) We want this connected to our .com along with a payment option.
+
+All components can reside on the same server for demo day and be scaled to three or two distinct servers as we expand.
+
+The first step would be to setup a local installation of the back-end and elasticsearch on both our computers. That will allow everyone to work without having to make direct modification on the server (production). 

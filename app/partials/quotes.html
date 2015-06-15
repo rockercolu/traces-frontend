@@ -1,0 +1,54 @@
+<div class="panel panel-default wrapper">
+  
+
+  <ul ng-model="theses" ui-sortable="sortableOptions" id="theses" class="panel-body col-lg-4 droppable" ng-controller="theses">
+      <div id="theses-header"class="row">Theses and quotes
+        <input class="col-xs-12" ng-model="query" placeholder="Find suggestions for your thesis by entering keywords here">
+        <!-- <span class="input-group-btn">
+        <button class="btn btn-primary" type="button"></button>
+      </span> -->
+      </div>
+
+
+ 
+    <li class="thesis" ng-repeat="thesis in theses" data-id="{{thesis.id}}" data-keywords="{{text.keywords}}" data-type="{{thesis.type}}"><p>{{thesis.text}} <a href="{{thesis.url}}" class="source-link">{{thesis.source}}</a></p></li>
+    <div class="rui-resizable-handle"></div>
+  </ul> <!-- thesis -->
+<!--   <ul ng-model="quotes" id="quotes" ui-sortable="sortableOptions" class="panel-body col-lg-4 droppable" ng-controller="quotes">
+    Quotes to choose from
+
+    <li class="quote" data-type="{{quote.type}}" data-id="{{quote.id}}" data-keywords="{{text.keywords}}" data-type="quote" ng-repeat="quote in quotes">
+      <p>{{quote.text}} <a href="{{quote.url}}" class="source-link">{{quote.source}}</a></p>
+    </li>
+  </ul> <!-- quotes --> 
+
+  <div id="pinboard" class="panel-body col-lg-4">
+    Outline
+    <ul id="outline" class="droppable" ui-sortable="sortableOptions" ng-model="texts" ng-controller="outline">
+      <li class="{{text.type}}" editable-text="text.text" data-type="{{text.type}}" data-id="{{text.id}}"  data-keywords="{{text.keywords}}" ng-repeat="text in texts"><p>{{text.text}} <a href="{{text.url}}"  class="source-link">{{text.source}}</a></p></li>
+    </ul>
+  </div> 
+  <!-- end #pinboard -->
+
+</div><!-- wrapper -->
+
+<!-- <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="explainer here" data-original-title="" title="" aria-describedby="popover208058">Search</button>
+    <form>
+	   <i class="fa fa-search"></i><input type="text" class="form-control col-lg-8" placeholder="Search for your thesis by keywords">
+    </form>
+</div> -->
+
+<!-- 
+<pre id="editor">function foo(items) {
+    var i;
+    for (i = 0; i &lt; items.length; i++) {
+        alert("Ace Rocks " + items[i]);
+    }
+}</pre>
+    
+<script src="src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/twilight");
+    editor.getSession().setMode("ace/mode/javascript");
+</script> -->
