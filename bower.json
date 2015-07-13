@@ -23,8 +23,11 @@
     "angular-xeditable": "^0.1.8",
     "bootstrap-tagsinput": "*",
     "typeahead.js": "*",
-    "socket.io-bundle": "*",
+    "socket.io-client": "*",
     "toastr":"*",
     "bootstrap-editable":"*"
+  },
+  "resolutions": {
+    "angular": "~1.2.x"
   }
 }
