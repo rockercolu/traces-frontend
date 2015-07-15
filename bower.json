@@ -24,8 +24,9 @@
     "bootstrap-tagsinput": "*",
     "typeahead.js": "*",
     "socket.io-client": "*",
-    "toastr":"*",
-    "bootstrap-editable":"*"
+    "toastr": "*",
+    "bootstrap-editable": "*",
+    "x-editable": "~1.5.1"
   },
   "resolutions": {
     "angular": "~1.2.x"
