@@ -1,11 +1,8 @@
-FROM centos:centos6.6
+FROM centos:centos7
 MAINTAINER Steven Rocker
-RUN yum -y clean all
-RUN yum -y update
-RUN yum -y install epel-release
-RUN yum -y install git
-RUN yum -y install tar git gcc gcc-c++ make
 
+RUN yum -y clean all
+RUN yum -y install epel-release git tar git gcc gcc-c++ make
 
 # Import Node GPG keys
 RUN set -ex \
@@ -38,16 +35,17 @@ ADD . /src
 
 RUN npm install bower -g
 
+RUN echo '{ "allow_root": true }' > /root/.bowerrc
+
 RUN cd /src \
 	&& git clone https://github.com/angular/angular-seed.git \
 	&& cd angular-seed \
+  && npm install . \
 	&& cd ../ \
-  && chown -R $(whoami) ~/.npm \
-	&& npm install . \
-  && bower install .
+  && bower install
 
 EXPOSE 8888
 
-ENTRYPOINT ["npm"]
+ENTRYPOINT ["/src/entrypoint.sh"]
 
-CMD ["start", "/src"]
+CMD []
