@@ -1,3 +1,13 @@
+### Start docker
+```bash
+sh docker-machine.sh
+```
+
+### Build the docker container 
+```bash
+sh docker-build.sh
+```
+
 ### Build the docker image
 ```bash
 docker build --name steven/citeshare:latest .
