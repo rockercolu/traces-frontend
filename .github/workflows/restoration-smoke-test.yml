@@ -31,3 +31,24 @@ jobs:
           test -f bower_components/jquery/dist/jquery.js
           test -f bower_components/jquery-ui/jquery-ui.min.js
           echo "Historical CiteShare dependency tree resolved."
+
+      - name: Start Old CiteShare
+        run: |
+          npm start > /tmp/citeshare.log 2>&1 &
+          echo $! > /tmp/citeshare.pid
+          for i in {1..20}; do
+            if curl --fail --silent http://127.0.0.1:8888/app/ > /tmp/citeshare.html; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/citeshare.log
+          exit 1
+
+      - name: Verify historical page renders
+        run: |
+          grep -q "CiteShare beta" /tmp/citeshare.html
+          grep -q "ng-view" /tmp/citeshare.html
+          curl --fail --silent http://127.0.0.1:8888/quotes.json > /tmp/quotes.json
+          grep -q "theses" /tmp/quotes.json
+          echo "Old CiteShare served its historical shell and source data successfully."
