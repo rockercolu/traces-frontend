@@ -1,0 +1,33 @@
+name: restoration-smoke-test
+on:
+  push:
+    branches:
+      - restoration-2026
+  workflow_dispatch:
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out restoration
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install restoration tools
+        run: npm install
+
+      - name: Resolve historical Bower dependencies
+        run: npx bower install --allow-root
+
+      - name: Verify historical assets
+        run: |
+          test -f app/index.html
+          test -f quotes.json
+          test -f bower_components/angular/angular.js
+          test -f bower_components/jquery/dist/jquery.js
+          test -f bower_components/jquery-ui/jquery-ui.min.js
+          echo "Historical CiteShare dependency tree resolved."
